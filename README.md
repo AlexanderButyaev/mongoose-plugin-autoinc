@@ -74,6 +74,18 @@ BookSchema.plugin(autoIncrement, {
 
 Your first book document would have a `bookId` equal to `100`. Your second book document would have a `bookId` equal to `200`, and so on.
 
+### Want that field to increment separately for a group (based on a specific field)?
+
+````js
+BookSchema.plugin(autoIncrement, {
+  model: 'Book',
+  field: 'bookId',
+  groupingField: 'author'
+});
+````
+
+Field `bookId` will be incremented separately for books of different authors.
+
 ### Want to know the next number coming up?
 
 ````js
